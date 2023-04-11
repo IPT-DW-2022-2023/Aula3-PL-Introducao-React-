@@ -22,7 +22,7 @@ class App extends React.Component {
     return (
       <div className="custom-page container">
         <div>
-          <Hello person={this.state.pessoa} mudarIdade={()=>this.handle2()} />
+          <Todo />
         </div>
       </div>
     );
