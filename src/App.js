@@ -11,18 +11,20 @@ class App extends React.Component {
     }
   }
 
-  handle2() {
+  handle2(idade, nome) {
     let person = this.state.pessoa;
-    person.idade++;
+    person.idade = idade;
+    person.nome = nome;
 
     this.setState({ pessoa: person });
   }
 
   render() {
+    let nome = this.state.pessoa.nome + ".";
     return (
       <div className="custom-page container">
         <div>
-          <Hello person={this.state.pessoa} mudarIdade={()=>this.handle2()} />
+          <Hello person={this.state.pessoa} mudarIdade={(idade) => this.handle2(idade, nome)} />
         </div>
       </div>
     );
