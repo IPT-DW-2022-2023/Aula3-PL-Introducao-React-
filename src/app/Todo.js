@@ -39,8 +39,6 @@ class Todo extends React.Component {
 
   handleEditItemInput(evt) {
     let valor = evt.target.value;
-
-
     this.setState({ valorInputItem: valor })
   }
 
