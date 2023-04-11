@@ -19,6 +19,13 @@ class App extends React.Component {
     this.setState({ pessoa: person });
   }
 
+  /**
+   * Para passar por parametro
+   * 
+   * Se estiver no primeiro conjunto de parentesis, é um parametro dado pelo filho
+   * Se apenas estiver declarada na chamada da função depois da seta, é dado pelo pai
+   * @returns
+   */
   render() {
     let nome = this.state.pessoa.nome + ".";
     return (
