@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Accordion from 'react-bootstrap/Accordion';
+import Item from './Item';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -61,21 +62,13 @@ class Todo extends React.Component {
   render() {
     let finishedItems = this.state.listaItems.map((it, index) => {
       if (it.status === 1) {
-        return <li class="list-group-item">{it.valor}
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-warning ms-5" onClick={() => this.handleEdit(index)}>Edit</button>
-          <button type="submit" class="btn btn-danger ms-5" onClick={() => this.handleDeleteItem(index)}>Remover</button>
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-success ms-5" onClick={() => this.handleStatus(index)}>Desconcluir</button>
-        </li>
+        return <Item item={it} handleEdit={ () => {this.handleEdit(index)}} handleDeleteItem={ () => {this.handleDeleteItem(index)}} handleStatus={ () => {this.handleStatus(index)}}/>
       }
     });
 
     let unfinishedItems = this.state.listaItems.map((it, index) => {
       if (it.status === 0) {
-        return <li class="list-group-item">{it.valor}
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-warning ms-5" onClick={() => this.handleEdit(index)}>Edit</button>
-          <button type="submit" class="btn btn-danger ms-5" onClick={() => this.handleDeleteItem(index)}>Remover</button>
-          <button data-bs-toggle="modal" data-bs-target="#exampleModal" type="submit" class="btn btn-success ms-5" onClick={() => this.handleStatus(index)}>Concluída</button>
-        </li>
+        return <Item item={it} handleEdit={ () => {this.handleEdit(index)}} handleDeleteItem={ () => {this.handleDeleteItem(index)}} handleStatus={ () => {this.handleStatus(index)}}/>
       }
     });
 
